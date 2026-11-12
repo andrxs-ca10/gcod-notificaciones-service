@@ -76,4 +76,19 @@ public class NotificacionesController {
                         ResponseEntity.ok(NotificacionResponse.desde(notificacion)))
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
+
+        @PostMapping("/{id}/enviar")
+    public ResponseEntity<NotificacionResponse> enviar(
+            @PathVariable Long id) {
+
+        var resultado = service.enviar(id);
+
+        if (resultado.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+
+        return ResponseEntity.ok(
+                NotificacionResponse.desde(resultado.get())
+        );
+    }
 }

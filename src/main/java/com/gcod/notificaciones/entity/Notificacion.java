@@ -109,6 +109,10 @@ public class Notificacion {
         return estado;
     }
 
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
     public LocalDateTime getFechaProgramada() {
         return fechaProgramada;
     }
