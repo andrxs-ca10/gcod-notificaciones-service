@@ -2,12 +2,13 @@ package com.gcod.notificaciones;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication
+@EnableScheduling
 public class GcodNotificacionesServiceApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(GcodNotificacionesServiceApplication.class, args);
-	}
-
+    public static void main(String[] args) {
+        SpringApplication.run(GcodNotificacionesServiceApplication.class, args);
+    }
 }

@@ -81,4 +81,17 @@ public class NotificacionService {
 
         return Optional.of(repository.save(notificacion));
     }
+
+    public void procesarNotificacionesProgramadas() {
+    List<Notificacion> pendientes =
+            repository.findByEstadoAndFechaProgramadaLessThanEqual(
+                    "PENDIENTE",
+                    LocalDateTime.now()
+            );
+
+    for (Notificacion notificacion : pendientes) {
+        enviar(notificacion.getId());
+    }
+}
+
 }
